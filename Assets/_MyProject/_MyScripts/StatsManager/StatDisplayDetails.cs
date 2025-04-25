@@ -39,6 +39,6 @@ public class StatDisplayDetails
         PlayerPrefs.SetFloat(SaveingCode, Current);
     }
 
-    string SaveingCode => _savingPrefix + Stat.ToString();
+    public string SaveingCode => _savingPrefix + Stat.ToString();
 
 }
