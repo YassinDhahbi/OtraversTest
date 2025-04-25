@@ -11,7 +11,7 @@ public class StatDisplayer : MonoBehaviour
 
     public void DisplayStat(StatDisplayDetails statDisplayDetails)
     {
-        statDisplayDetails.Initialize();
+        statDisplayDetails.LoadData();
         _statNameTMP.text = statDisplayDetails.Stat.ToString();
         _statDisplayDetails = statDisplayDetails;
         _statValueTMP.text = $"{statDisplayDetails.Current}/{statDisplayDetails.Max}";

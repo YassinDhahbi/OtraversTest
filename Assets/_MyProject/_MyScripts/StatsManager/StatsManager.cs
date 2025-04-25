@@ -41,7 +41,26 @@ public class StatsManager : Singelton<StatsManager>
         }
     }
 
-    public void ResetStat(Stats statToReset) => _listOfStatsDetails[(int)statToReset].Initialize();
+    public void ResetStat(Stats statToReset)
+    {
+        var targetStat = _listOfStatsDetails.Find(x => x.Stat == statToReset);
+        targetStat.IsActive = true;
+        targetStat.Initialize();
+    }
+    public void StopStatSimulation(Stats statToReset)
+    {
+        var targetStat = _listOfStatsDetails.Find(x => x.Stat == statToReset);
+        targetStat.IsActive = false;
+    }
+
+
+    void OnDisable()
+    {
+        foreach (var statData in _listOfStatsDetails)
+        {
+            statData.SaveData();
+        }
+    }
 
 }
 

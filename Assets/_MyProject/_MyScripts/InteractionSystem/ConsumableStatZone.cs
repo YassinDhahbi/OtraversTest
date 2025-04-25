@@ -19,6 +19,7 @@ public class ConsumableStatZone : InteractableStatZone
         var target = PlayerController.Instance.ConsumingPoint;
         _consumableObject.transform.DOMove(target.position, TRAVEL_TIME).OnComplete(() => ConsumingBehaviour(target));
         EventManager.Instance.OnMessageSent?.Invoke("");
+        StatsManager.Instance.StopStatSimulation(_targetStat);
     }
 
     private void ConsumingBehaviour(Transform targetTransform)
