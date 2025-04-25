@@ -3,23 +3,31 @@ using UnityEngine;
 public abstract class InteractableStatZone : MonoBehaviour
 {
     [SerializeField] private string _interactionText = "Interact";
+    protected bool _isInteracting;
+    protected bool _isInteractable;
 
     void OnTriggerEnter(Collider other)
     {
-        if (PlayerController.Instance.IsConsuming) return;
         EventManager.Instance.OnMessageSent?.Invoke(_interactionText);
+        _isInteractable = true;
+
     }
     void OnTriggerExit(Collider other)
     {
         EventManager.Instance.OnMessageSent?.Invoke("");
+        _isInteractable = false;
     }
     [SerializeField] protected Stats _targetStat;
-    protected abstract void Interact();
+    protected virtual void Interact()
+    {
+        StatsManager.Instance.ResetStat(_targetStat);
+    }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && PlayerController.Instance.IsConsuming == false)
+        if (Input.GetKeyDown(KeyCode.E) && _isInteractable)
         {
             Interact();
+            _isInteracting = true;
         }
     }
 

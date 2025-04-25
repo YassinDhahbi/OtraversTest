@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StatsManager : MonoBehaviour
+public class StatsManager : Singelton<StatsManager>
 {
     [SerializeField] private List<StatDisplayDetails> _listOfStatsDetails;
     List<StatDisplayer> _listOfDisplayers = new List<StatDisplayer>();
@@ -40,6 +40,8 @@ public class StatsManager : MonoBehaviour
             displayer.SyncCurrentValue();
         }
     }
+
+    public void ResetStat(Stats statToReset) => _listOfStatsDetails[(int)statToReset].Initialize();
 
 }
 

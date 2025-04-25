@@ -19,7 +19,6 @@ public class ConsumableStatZone : InteractableStatZone
         var target = PlayerController.Instance.ConsumingPoint;
         _consumableObject.transform.DOMove(target.position, TRAVEL_TIME).OnComplete(() => ConsumingBehaviour(target));
         EventManager.Instance.OnMessageSent?.Invoke("");
-
     }
 
     private void ConsumingBehaviour(Transform targetTransform)
@@ -29,6 +28,7 @@ public class ConsumableStatZone : InteractableStatZone
         DOVirtual.DelayedCall(_consumptionTime, StopConsumption);
         _consumableObject.transform.DOScale(0, _consumptionTime);
         _consumableSound?.Play();
+        base.Interact();
 
     }
 
