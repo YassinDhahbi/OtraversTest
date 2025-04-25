@@ -3,7 +3,6 @@ using UnityEngine;
 public abstract class InteractableStatZone : MonoBehaviour
 {
     [SerializeField] private string _interactionText = "Interact";
-    protected bool _isInteracting;
     protected bool _isInteractable;
 
     void OnTriggerEnter(Collider other)
@@ -27,7 +26,6 @@ public abstract class InteractableStatZone : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && _isInteractable)
         {
             Interact();
-            _isInteracting = true;
         }
     }
 
