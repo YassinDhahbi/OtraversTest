@@ -56,5 +56,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "OtraversTest.sln"
+    "dotnet.defaultSolution": "OtraversTest.sln",
+    "editor.formatOnSave": true
 }

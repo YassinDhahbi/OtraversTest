@@ -1,7 +1,7 @@
 using UnityEngine;
 using NaughtyAttributes;
 
-public partial class PlayerController : MonoBehaviour
+public partial class PlayerController : Singelton<PlayerController>
 {
     [HorizontalLine(color: EColor.Green)]
     [Header("Movement Parameters")]
@@ -17,6 +17,11 @@ public partial class PlayerController : MonoBehaviour
     private RotationHandler rotationHandler;
     private MovemementHandler movemementHandler;
 
+    [Header("Consuming Parameters")]
+    [SerializeField] private Transform _consumingPoint;
+    public Transform ConsumingPoint => _consumingPoint;
+    public bool IsConsuming;
+
 
     [SerializeField] private GravityHandler gravityHandler;
 
@@ -30,11 +35,11 @@ public partial class PlayerController : MonoBehaviour
     void Update()
     {
         HandleRotation();
+        HandleMovement();
     }
 
     private void FixedUpdate()
     {
-        HandleMovement();
         gravityHandler.HandleGravity();
     }
 
