@@ -4,6 +4,7 @@ public abstract class InteractableStatZone : MonoBehaviour
 {
     [SerializeField] private string _interactionText = "Interact";
     protected bool _isInteractable;
+    [SerializeField] private float _energyGain;
 
     void OnTriggerEnter(Collider other)
     {
@@ -20,6 +21,7 @@ public abstract class InteractableStatZone : MonoBehaviour
     protected virtual void Interact()
     {
         StatsManager.Instance.ResetStat(_targetStat);
+        StatsManager.Instance.AddToStat(Stats.Energy, _energyGain);
     }
     void Update()
     {

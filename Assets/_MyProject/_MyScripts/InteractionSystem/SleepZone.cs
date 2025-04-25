@@ -11,6 +11,7 @@ public class SleepZone : InteractableStatZone
     [SerializeField] private AudioSource _sleepingSound;
     [SerializeField] private float _sleepingDuration = 5f;
     [SerializeField] private Image _sleepingVignetteOverlay;
+
     void Start()
     {
         _sleepingPosition = _sleepingPlayerCopy.transform.position;

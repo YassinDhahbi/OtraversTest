@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -62,6 +63,11 @@ public class StatsManager : Singelton<StatsManager>
         }
     }
 
+    internal void AddToStat(Stats targetStat, float energyGain)
+    {
+        var target = _listOfStatsDetails.Find(x => x.Stat == targetStat);
+        target.Current += energyGain;
+    }
 }
 
 

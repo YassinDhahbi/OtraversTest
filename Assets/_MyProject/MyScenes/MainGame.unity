@@ -2365,6 +2365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interactionText: Drink
+  _energyGain: 50
   _targetStat: 3
   _consumableObject: {fileID: 1906620766}
   _consumableParticle: {fileID: 1866967143}
@@ -2637,6 +2638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interactionText: Sleep
+  _energyGain: 250
   _targetStat: 1
   _sleepingPlayerCopy: {fileID: 367068210}
   _sleepingSound: {fileID: 1209117483}
@@ -14265,6 +14267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interactionText: Eat
+  _energyGain: 150
   _targetStat: 2
   _consumableObject: {fileID: 1528036462}
   _consumableParticle: {fileID: 1776282634}
@@ -14356,25 +14359,25 @@ MonoBehaviour:
     Max: 250
     Current: 0
     IsActive: 1
-    DedecutionPerSecond: 10
+    DedecutionPerSecond: 5
     RepresentationColor: {r: 0.03804734, g: 0.5377358, b: 0.16041997, a: 1}
   - Stat: 1
     Max: 250
     Current: 0
     IsActive: 1
-    DedecutionPerSecond: 10
+    DedecutionPerSecond: 1
     RepresentationColor: {r: 0.5372549, g: 0.03921568, b: 0.052361824, a: 1}
   - Stat: 2
     Max: 250
     Current: 0
     IsActive: 1
-    DedecutionPerSecond: 10
+    DedecutionPerSecond: 1
     RepresentationColor: {r: 0.5372549, g: 0.50079376, b: 0.03921568, a: 1}
   - Stat: 3
     Max: 250
     Current: 0
     IsActive: 1
-    DedecutionPerSecond: 10
+    DedecutionPerSecond: 1
     RepresentationColor: {r: 0.03921568, g: 0.3520989, b: 0.5372549, a: 1}
   _displayerPrefab: {fileID: 3014678453421064670, guid: 846e6ee533ea345499bfb4a2030b842c, type: 3}
   _displayerParent: {fileID: 376321879}
